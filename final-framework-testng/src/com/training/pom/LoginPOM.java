@@ -1,5 +1,6 @@
 package com.training.pom;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,14 +14,14 @@ public class LoginPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="login")
-	private WebElement userName; 
+	@FindBy(id="input-username")
+	public WebElement userName; 
 	
-	@FindBy(id="password")
-	private WebElement password;
+	@FindBy(id="input-password")
+	public WebElement password;
 	
-	@FindBy(id="formLogin_submitAuth")
-	private WebElement loginBtn; 
+	@FindBy(xpath="//button[@type='submit']")
+	public WebElement loginBtn; 
 	
 	public void sendUserName(String userName) {
 		this.userName.clear();
