@@ -7,16 +7,13 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
 import com.training.generics.ScreenShot;
+import com.training.pom.FilterOrderPOM;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
@@ -30,6 +27,7 @@ public class TC_UNF_019 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
+	private FilterOrderPOM deleteOrderfltPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -45,6 +43,7 @@ public class TC_UNF_019 {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 
 		baseUrl = properties.getProperty("baseURL");
+		deleteOrderfltPOM = new FilterOrderPOM(driver);
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
@@ -56,7 +55,7 @@ public class TC_UNF_019 {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() throws InterruptedException {
+	public void DeleteReturnProduct() throws InterruptedException {
 		
 		//logins by entering the valid credentials
 		loginPOM.sendUserName("admin");
@@ -64,69 +63,41 @@ public class TC_UNF_019 {
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
 		
+		deleteOrderfltPOM.clickSale();
+		deleteOrderfltPOM.clickReturnOrder();
+		Thread.sleep(1000);
+		deleteOrderfltPOM.clickcheckbox();
+		deleteOrderfltPOM.clickDeleteBtnFltPage();	
+		Thread.sleep(1000);
 		
-		
-		
-		//clicks on Sales->Returns link		
-	    driver.findElement(By.id("sale")).click();
-	    driver.findElement(By.xpath("//li[@id='sale']/ul/li[3]")).click();
-	    Thread.sleep(3000);
-	    
-	    
-	    
-	    
-	    //locates the item to be deleted and deletes it
-	    driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).click();
-	    driver.findElement(By.xpath("//div[@class='pull-right']//button[@type='button']")).click();
-	    Thread.sleep(5000);
-	    
-	    
+			    
 	    	    
-	    //captures the message displayed in the pop-up 	    
-	    String ActualMessage = driver.switchTo().alert().getText();
-	    String ExpectedMessage = "Are you sure?";
-	    
-	    
-	    
-	    //checks if actual message matches the expected one
-	    Assert.assertEquals(ActualMessage,ExpectedMessage,"Actual pop-up message does not match with the expected");
+	    //captures the pop-up message and checks if it matches the expected pop-up message
+		String expectedMessage1 = "Are you sure?";
+	    String actualMessage1 = driver.switchTo().alert().getText();
+	    Assert.assertEquals(actualMessage1,expectedMessage1);
 	    System.out.println("Actual pop-up message matches with the expected message.");
 	    
 	    
 	    //clicks OK button on the alert pop-up	    
 	    driver.switchTo().alert().accept();
-	    Thread.sleep(3000);
+	    Thread.sleep(1000);
 	     
-	    //captures the message displayed after deleting the item	  
-	    String ActualFinalMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();  
-	    String ExpectedFinalMessage = " Success: You have modified returns!      ";
-	    
+	    //captures the message displayed after deleting the item and checks if it matches the expected
+	    String expectedMessage2 = "Success: You have modified returns!";
+	    String actualMessage2 = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();  
+	    System.out.println("Actual Message: "  +actualMessage2);
+	    boolean b1 = actualMessage2.contains(expectedMessage2);
+	    Assert.assertEquals(b1,true);
+    
 	    
 	    
 	    //scrolls the view vertically down by 100 pixels so that we can view that the deleted item is no longer visible in the return list
 	    JavascriptExecutor je = (JavascriptExecutor) driver;
-	    je.executeScript("scroll(0,100)");
-	    Thread.sleep(3000);
+	    je.executeScript("scroll(0,200)");
+	    Thread.sleep(1000);
 	
-	    
-	    //checks if actual final message displayed after deleting the item matches the expected one
-	    SoftAssert sa=new SoftAssert();
-	    sa.assertEquals(ActualFinalMessage,ExpectedFinalMessage, "Actual final message does not match with the expected.");
-	    System.out.println("Actual final message matches with the expected message. Selected order is removed from returned list successfully.");
-	    Thread.sleep(3000);   
 
 	 
 	    }
-		
-	
-
-	private void sleep(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private Object action() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

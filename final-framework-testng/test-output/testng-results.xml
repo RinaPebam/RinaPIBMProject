@@ -1,100 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="55407" started-at="2019-03-13T08:58:31Z" finished-at="2019-03-13T08:59:26Z">
+  <suite name="Default suite" duration-ms="16652" started-at="2019-03-24T17:33:25Z" finished-at="2019-03-24T17:33:41Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="55407" started-at="2019-03-13T08:58:31Z" finished-at="2019-03-13T08:59:26Z">
-      <class name="com.training.sanity.tests.TC_UNF_018">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.TC_UNF_018@47c62251]" name="setUpBeforeClass" is-config="true" duration-ms="16" started-at="2019-03-13T08:58:31Z" finished-at="2019-03-13T08:58:31Z">
+    <test name="Default test" duration-ms="16652" started-at="2019-03-24T17:33:25Z" finished-at="2019-03-24T17:33:41Z">
+      <class name="com.training.sanity.tests.TC_UNF_47">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.TC_UNF_47@47c62251]" name="setUpBeforeClass" is-config="true" duration-ms="15" started-at="2019-03-24T17:33:25Z" finished-at="2019-03-24T17:33:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.TC_UNF_018@47c62251]" name="setUp" is-config="true" duration-ms="6579" started-at="2019-03-13T08:58:31Z" finished-at="2019-03-13T08:58:37Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.TC_UNF_47@47c62251]" name="setUp" is-config="true" duration-ms="8062" started-at="2019-03-24T17:33:25Z" finished-at="2019-03-24T17:33:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="validLoginTest()[pri:0, instance:com.training.sanity.tests.TC_UNF_018@47c62251]" name="validLoginTest" duration-ms="47000" started-at="2019-03-13T08:58:37Z" finished-at="2019-03-13T08:59:24Z">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//table/tbody/tr[13]"}
-  (Session info: chrome=72.0.3626.121)
-  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
-System info: host: 'LAPTOP-KJDQP2H1', ip: '9.85.71.221', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50197}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38), userDataDir=C:\Users\RINAPE~1\AppData\Local\Temp\scoped_dir19572_11598}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=72.0.3626.121, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 62458195bee8d4ccc707f8b32d75dd3e
-*** Element info: {Using=xpath, value=//table/tbody/tr[13]}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//table/tbody/tr[13]"}
-  (Session info: chrome=72.0.3626.121)
-  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
-System info: host: 'LAPTOP-KJDQP2H1', ip: '9.85.71.221', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=XP, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:50197}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38), userDataDir=C:\Users\RINAPE~1\AppData\Local\Temp\scoped_dir19572_11598}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=72.0.3626.121, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 62458195bee8d4ccc707f8b32d75dd3e
-*** Element info: {Using=xpath, value=//table/tbody/tr[13]}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
-at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
-at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:458)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:348)
-at com.training.sanity.tests.TC_UNF_018.validLoginTest(TC_UNF_018.java:152)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        <test-method status="PASS" signature="MultipleFilterTest()[pri:0, instance:com.training.sanity.tests.TC_UNF_47@47c62251]" name="MultipleFilterTest" duration-ms="6992" started-at="2019-03-24T17:33:33Z" finished-at="2019-03-24T17:33:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validLoginTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.TC_UNF_018@47c62251]" name="tearDown" is-config="true" duration-ms="1797" started-at="2019-03-13T08:59:24Z" finished-at="2019-03-13T08:59:26Z">
+        </test-method> <!-- MultipleFilterTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.TC_UNF_47@47c62251]" name="tearDown" is-config="true" duration-ms="1560" started-at="2019-03-24T17:33:40Z" finished-at="2019-03-24T17:33:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.TC_UNF_018 -->
+      </class> <!-- com.training.sanity.tests.TC_UNF_47 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

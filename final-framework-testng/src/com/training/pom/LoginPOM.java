@@ -1,6 +1,5 @@
 package com.training.pom;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +9,7 @@ public class LoginPOM {
 	private WebDriver driver; 
 	
 	public LoginPOM(WebDriver driver) {
-		this.driver = driver; 
+		this.setDriver(driver); 
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -35,5 +34,13 @@ public class LoginPOM {
 	
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
+	}
+
+	public WebDriver getDriver() {
+		return driver;
+	}
+
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
 }
