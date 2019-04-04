@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.training.dataproviders.AllTCsDataProviders;
 import com.training.generics.ScreenShot;
 import com.training.pom.AddCategoryPOM;
 import com.training.pom.AddProductPOM;
@@ -24,10 +25,11 @@ import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 
-/*TC_UNF_46: To verify whether application allows admin to change multiple order placed by the customer */
+/*TC_UNF_77: To verify whether application allows admin to change multiple order placed by the customer */
+/* reading inputs from excel sheet */
 
 
-public class TC_UNF_046{
+public class TC_UNF_77{
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -59,14 +61,14 @@ public class TC_UNF_046{
 		driver.quit();
 	}
 	
-	@Test
-	public void AddCategoryAddProductTest() throws InterruptedException {
+	@Test(dataProvider = "xls-inputsTC77", dataProviderClass = AllTCsDataProviders.class)
+	public void AddCategoryAddProductTest(String productName, int quantity ) throws InterruptedException {
 		
 		//enters the login credentials
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");		
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("TC_UNF_046");		
+		screenShot.captureScreenShot("TC_UNF_077");		
 		Thread.sleep(1000);
 		
 		
@@ -80,20 +82,9 @@ public class TC_UNF_046{
 		Thread.sleep(1000);
 		editorderPOM.clickRemoveBtn();
 		Thread.sleep(1000);
-		editorderPOM.enterProduct("SPORTS T-SHIRTS");
-		editorderPOM.clickSelectedProduct("SPORTS T-SHIRTS");		
-		editorderPOM.enterQuantity("1");
-		editorderPOM.clickChestSize();
-		
-		for(WebElement s: editorderPOM.clickChestSize())
-		{
-			if(s.getText().equalsIgnoreCase("40")) 
-			{
-				s.click();
-			}
-		}
-	
-	
+		editorderPOM.enterProduct(productName);
+		editorderPOM.clickSelectedProduct(productName);		
+		editorderPOM.enterQuantity("quantity");
 		editorderPOM.clickAddProductBtn();
 		editorderPOM.clickProductsPageContinueBtn();
 		editorderPOM.clickPaymentPageContinueBtn();

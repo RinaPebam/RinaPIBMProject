@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.training.dataproviders.AllTCsDataProviders;
 import com.training.generics.ScreenShot;
 import com.training.pom.AddCategoryPOM;
 import com.training.pom.AddProductPOM;
@@ -20,10 +21,10 @@ import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
 
-/*TC_UNF_48: To verify whether application allows admin to create category & add product on the created category*/
+/*TC_UNF_79: To verify whether application allows admin to create multiple category & add product on the created category*/
 
 
-public class TC_UNF_048{
+public class TC_UNF_79{
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -57,14 +58,14 @@ public class TC_UNF_048{
 		driver.quit();
 	}
 	
-	@Test
-	public void AddCategoryAddProductTest() throws InterruptedException {
+	@Test(dataProvider = "xls-inputsTC79", dataProviderClass = AllTCsDataProviders.class)
+	public void AddCategoryAddProductTest(String categoryName, String description, String metaTagTitle, String metaTagDescription, String productName, String metaTite, String category) throws InterruptedException {
 		
 		//enters the login credentials
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");		
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("TC_UNF_048");		
+		screenShot.captureScreenShot("TC_UNF_078");		
 		Thread.sleep(1000);
 		
 		
@@ -72,15 +73,29 @@ public class TC_UNF_048{
 		addcategory.clickCatalog();
 		addcategory.clickCategories();
 		addcategory.clickAddSign();
-		addcategory.enterCategoryName("category5");
-		addcategory.enterDescription("description5");
-		addcategory.entermetaTitle("metatitle5");
-		addcategory.entermetaTagDescription("metaTagTitle5");
+		addcategory.enterCategoryName(categoryName);
+		addcategory.enterDescription(description);
+		addcategory.entermetaTitle(metaTagTitle);
+		addcategory.entermetaTagDescription(metaTagDescription);
 		addcategory.clickdataTab();
 		addcategory.clickdesignTab();
 		addcategory.clicksaveButton();
+
+		if(categoryName == null || description == null || metaTagTitle == null || metaTagDescription == null)
+		{
+			String expectedMessage = "Warning: Please check the form carefully for errors!";
+			String actualMessage = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();  
+		    System.out.println("Actual Message: "  +actualMessage);
+		    boolean b1 = actualMessage.contains(expectedMessage);
+		    Assert.assertEquals(b1,true);
+		    
+		    break;
+		}
 		
-			
+		else
+		{
+		
+		
 		//checks if the message displayed after adding category matches the expected one
 		String expectedMessage = "Success: You have modified categories!";
 		String actualMessage = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();  
@@ -93,10 +108,10 @@ public class TC_UNF_048{
 	    addproduct.clickCatalog();
 	    addproduct.clickCategories();
 	    addproduct.addSign();
-	    addproduct.enterProductName("category4");
-	    addproduct.entermetaTitle("metatitle4");
+	    addproduct.enterProductName(productName);
+	    addproduct.entermetaTitle(metaTite);
 	    addproduct.clickdataTab();
-	    addproduct.enterModelName("model4");
+	    addproduct.enterModelName(category);
 	    addproduct.clickLinksTab();
 	    addproduct.selectCategory();
 	    addproduct.clickAttributeTab();
@@ -117,6 +132,8 @@ public class TC_UNF_048{
 	    boolean b2 = actualMessage1.contains(expectedMessage1);
 	    Assert.assertEquals(b2,true);
 	    
+		}
+		
 	    driver.close();
 	    
 	    

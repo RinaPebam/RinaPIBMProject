@@ -7,9 +7,9 @@ import org.testng.annotations.DataProvider;
 import com.training.bean.LoginBean;
 import com.training.dao.ELearningDAO;
 import com.training.readexcel.ApachePOIExcelRead;
-import com.training.readexcel.ReadExcel;
+import com.training.readexcel.ReadExcel_old;
 
-public class LoginDataProviders {
+public class LoginDataProviders_old {
 
 	@DataProvider(name = "db-inputs")
 	public Object [][] getDBData() {
@@ -33,13 +33,15 @@ public class LoginDataProviders {
 	@DataProvider(name = "excel-inputs")
 	public Object[][] getExcelData(){
 		//String fileName ="C:/Users/Naveen/Desktop/Testing.xlsx"; 
-		String fileName ="C:\\RinaExcel.xls";
+		String fileName ="C:\\RinaExcel.xlsx";
 		return new ApachePOIExcelRead().getExcelContent(fileName); 
 	}
 	
 	@DataProvider(name = "xls-inputs")
 	public Object[][] getXLSData(){
 		// ensure you will have the title as first line in the file 
-		return new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1"); 
+		//return new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1"); 
+		return new ReadExcel_old().getExcelData("C:\\RinaExcel.xlsx", "Sheet1");
+		
 	}
 }

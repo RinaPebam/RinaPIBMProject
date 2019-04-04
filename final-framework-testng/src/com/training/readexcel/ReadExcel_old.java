@@ -9,7 +9,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class ReadExcel {
+public class ReadExcel_old {
 	
 	public String[][] getExcelData(String fileName, String sheetName) 
 	   {
@@ -45,7 +45,7 @@ public class ReadExcel {
 	public static void main(String[] args) {
 		//String[][] result = new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1"); 
 		
-		String[][] result = new ReadExcel().getExcelData("/Selenium-Automation-Elearning-Framework-TestNG/resources/RinaExcel.xlsx", "Sheet1"); 
+		String[][] result = new ReadExcel_old().getExcelData("C:\\RinaExcel.xlsx", "Sheet1"); 
 		
 		for(String [] temp : result){
 			for(String temp1: temp){

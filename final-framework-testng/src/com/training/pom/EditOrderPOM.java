@@ -34,10 +34,12 @@ public class EditOrderPOM {
 	public WebElement editBtn;
 	
 	@FindBy (xpath = "//button[@id='button-customer']")
+	//@FindBy (xpath = "//*[@id=\"button-customer\"]")
 	public WebElement customerPageContinueBtn;
 	
 	
-	@FindBy (xpath = "//button[@data-original-title=\"Remove\"]")
+	//@FindBy (xpath = "//button[@data-original-title=\"Remove\"]")
+	@FindBy (xpath = "//tbody[@id=\"cart\"]/tr/td[6]/button")
 	public WebElement removeBtn;
 	
 		
@@ -49,14 +51,17 @@ public class EditOrderPOM {
 	
 	
 	//@FindBy (xpath = "//select[@id='input-option370']")
-	@FindBy (xpath = "//*[@id='input-option368']")
+	@FindBy (xpath="//div[@id=\"option\"]/fieldset/div/div[1]/select[@class=\"form-control\"]")
 	public WebElement chestSize;
 	
 	@FindBy (xpath = "//button[contains(text(),'Add Product')]")
 	public WebElement addProductBtn;
 	
 	
-
+	@FindBy (xpath="//ul[@class='dropdown-menu']//li")
+	public List<WebElement> ProductList;
+	
+	
 	@FindBy (xpath="//*[@id='button-cart']")
 	public WebElement productsPageContinueBtn;
 	
@@ -83,8 +88,8 @@ public class EditOrderPOM {
 	public WebElement saveBtn;
 	
 		
-	@FindBy (xpath = "//*[@class='dropdown-menu']/li")
-	public List<WebElement> prodName;
+	//@FindBy (xpath = "//*[@class='dropdown-menu']/li")
+	//public List<WebElement> prodName;
 	
 	
 	
@@ -138,11 +143,12 @@ public class EditOrderPOM {
 		this.removeBtn.click();
 	}
 	
-	public void selectProduct(String ch5)
+	public void clickSelectedProduct(String ch5)
 	{
+		
 		WebDriverWait wait = new WebDriverWait(driver,20);
-		wait.until(ExpectedConditions.visibilityOfAllElements(prodName));
-		prodName.get(1).click();
+		wait.until(ExpectedConditions.visibilityOfAllElements(ProductList));
+		ProductList.get(1).click();
 	}
 	
 	/*public void selectChestSize5()
@@ -159,7 +165,7 @@ public class EditOrderPOM {
 		
 	}*/
 	
-	public List<WebElement> selectChestSize1 () {
+	public List<WebElement> clickChestSize () {
 		  return new Select(chestSize).getOptions();
 	}
 	
